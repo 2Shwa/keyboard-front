@@ -195,3 +195,15 @@ html, body {
     text-align: center;             /* 가운데 정렬 */
     text-decoration: none;          /* 밑줄 제거 */
 }
+
+.Header-Button {
+    padding: 0.5rem 1rem;
+    background-color: #B8F5DC;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-left: 0.5rem;
+  }

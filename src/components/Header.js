@@ -5,14 +5,23 @@ import logo from '../images/logo.png';
 import heartIcon from '../images/heart.png';
 import bookIcon from '../images/book.png';
 import SearchBar from './SearchBar';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
+  const navigate = useNavigate();
+  const token = localStorage.getItem('token');
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location.reload(); // 로그아웃 후 UI 갱신
+  };
+
   return (
     <header className="Header-Container">
       <div className="Header">
         {/* 로고 영역 */}
         <Link to='/' className="Logo">
-          <img src={logo} alt="키덕 로고" className="Logo-icon" /> 
+          <img src={logo} alt="키덕 로고" className="Logo-icon" />
         </Link>
 
         {/* 섹션 컨테이너 */}
@@ -35,9 +44,20 @@ function Header() {
               {/* 로그인 컨테이너 */}
               <div className="Login-Container">
                 <div className="Login-Link">
-                  <Link to="/login" className="Login-text">
-                    회원가입 | 로그인
-                  </Link>
+                  {token ? (
+                    <>
+                      <button onClick={() => navigate('/mypage')} style={buttonStyle}>
+                        마이페이지
+                      </button>
+                      <button onClick={handleLogout} style={buttonStyle}>
+                        로그아웃
+                      </button>
+                    </>
+                  ) : (
+                    <Link to="/login" className="Login-text">
+                      회원가입 | 로그인
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
