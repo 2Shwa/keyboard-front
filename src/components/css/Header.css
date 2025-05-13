@@ -35,11 +35,11 @@ html, body {
   
 /* 로고 영역 */
 .Logo {
-    display: flex;                  /* 내부 요소 정렬 */
-    align-items: center;            /* 수직 정렬 */
-    justify-content: center;        /* 수평 가운데 정렬 */
-    width: 120px;                   /* 너비 120px */
-    height: 90px;                   /* 높이 90px */
+  width: 200px; /* 로고 폭 고정 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
 }
   
 .Logo-icon {
@@ -50,16 +50,16 @@ html, body {
   
 /* 섹션 컨테이너 전체 */
 .Section-Container {
-    position: absolute;             /* Header 기준 절대 위치 */
-    display: flex;                  /* 내부 요소 정렬 */
-    flex-direction: row;            /* 가로 방향 배치 */
-    align-items: center;            /* 수직 가운데 정렬 */
-    bottom: 5px;                    /* 하단에서 5px 위 */
-    left: 120px;                    /* 왼쪽 여백 (로고 옆) */
-    right: 0px;                     /* 오른쪽 끝까지 */
-    height: 40px;                   /* 높이 40px */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  height: 40px;
+  margin: 0 auto;
 }
-  
+
 /* 조립 튜토리얼 영역 */
 .Tutorial-Section {
     display: flex;                  /* 내부 요소 정렬 */
@@ -98,6 +98,12 @@ html, body {
 }
   
 /* 검색 섹션 */
+.SearchBar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .Search-Section {
     display: flex;                  /* 내부 요소 정렬 */
     width: 401px;                   /* 너비 401px */
@@ -154,12 +160,11 @@ html, body {
   
 /* 리스트 섹션 */
 .List-Section {
-    display: flex;                  /* 내부 요소 정렬 */
-    width: 400px;                   /* 너비 400px */
-    height: 40px;                   /* 전체 높이 */
-    justify-content: center;        /* 수평 가운데 정렬 */
-    align-items: center;            /* 수직 가운데 정렬 */
-    padding: 0 35px;                /* 안쪽 여백 35px */
+  width: 200px; /* 로고랑 동일하게 고정 */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 40px;
 }
 
 .List-Container {
@@ -179,13 +184,10 @@ html, body {
     padding: 0 15px;                /* 안쪽 여백 15px */
 }
   
-.Login-Link {
-    display: flex;                  /* 내부 요소 정렬 */
-    justify-content: center;        /* 수평 가운데 정렬 */
-    align-items: center;            /* 수직 가운데 정렬 */
-    width: 100%;                   /* 전체 너비 */
-    height: 100%;                   /* 전체 높이 */
-    border-left: 1px solid #b3b3b3;
+.Login-Link-Wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
   
 .Login-text {
@@ -194,16 +196,11 @@ html, body {
     color: #b3b3b3;               /* 회색 텍스트 */
     text-align: center;             /* 가운데 정렬 */
     text-decoration: none;          /* 밑줄 제거 */
+    cursor: pointer;
+    white-space: nowrap;            /* 줄바꿈 방지 */
 }
 
-.Header-Button {
-    padding: 0.5rem 1rem;
-    background-color: #B8F5DC;
-    color: #333;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    margin-left: 0.5rem;
-  }
+.Divider {
+  color: #aaa;
+  user-select: none;
+}

@@ -3,48 +3,53 @@ import React, { useState } from 'react';
 function FilterForm() {
   const [results, setResults] = useState([]);
   const [filters, setFilters] = useState({
-    manufacturer: [],
-    connection: [],
-    weight: [],
-    material: [],
-    backlight: [],
-    layout: [],
-    keyforce: [],
-    noise: [],
-    switch: [],
-    usage: [],
-    price: [],
+    제조사: ['전체'],
+    연결방식: ['전체'],
+    무게: ['전체'],
+    재질: ['전체'],
+    백라이트: ['전체'],
+    '키 배열': ['전체'],
+    키압: ['전체'],
+    소음: ['전체'],
+    스위치: ['전체'],
+    용도: ['전체'],
+    가격: ['전체'],
   });
 
   const handleCheckboxChange = (category, value) => {
     setFilters(prev => {
-      const alreadyChecked = prev[category].includes(value);
-      if (alreadyChecked) {
+      const current = prev[category];
+      const isChecked = current.includes(value);
+
+      // 1️⃣ '전체'를 선택한 경우 → 다른 항목들 제거하고 '전체'만 남김
+      if (value === '전체') {
         return {
           ...prev,
-          [category]: prev[category].filter(v => v !== value)
-        };
-      } else {
-        return {
-          ...prev,
-          [category]: [...prev[category], value]
+          [category]: ['전체']
         };
       }
+
+      // 2️⃣ 다른 항목을 선택한 경우 → '전체' 제거하고 항목 추가 or 제거
+      const updated = isChecked
+        ? current.filter(v => v !== value) // 체크 해제
+        : [...current.filter(v => v !== '전체'), value]; // '전체' 제거 후 추가
+
+      return {
+        ...prev,
+        [category]: updated
+      };
     });
   };
 
   const handleSubmit = () => {
-    // 임시 더미 데이터
     const dummyResults = [
       { id: 1, name: 'Keychron K8', desc: '텐키리스 무선 기계식 키보드', image: '/keychron_k8.jpeg' },
       { id: 2, name: 'Logitech MX Keys', desc: '무접점 멤브레인 느낌의 타건감', image: '/logitech_mx_keys.png' },
       { id: 3, name: 'Leopold FC750R', desc: '정전용량 무접점, 조용한 타건감', image: '/leopold_fc750r.png' },
-      // ...더 추가 가능
     ];
     setResults(dummyResults);
   };
 
-  // 공통 스타일
   const boxStyle = {
     display: 'flex',
     alignItems: 'center',
@@ -72,6 +77,20 @@ function FilterForm() {
     gap: '0.3rem',
   };
 
+  const filterCategories = {
+    제조사: ['전체', '로지텍', '커세어', '앱코', '키크론'],
+    연결방식: ['전체', '유선', '무선(블루투스)', '무선(2.4GHz)'],
+    무게: ['전체', '가벼움 (700g 이하)', '보통 (700g ~ 1.2kg)', '무거움 (1.2kg 이상)'],
+    재질: ['전체', '플라스틱', '알루미늄', '아크릴'],
+    백라이트: ['전체', '레인보우', '단색', 'RGB', '없음'],
+    '키 배열': ['전체', '풀배열', '작은배열'],
+    키압: ['전체', '가벼움 (35~45g)', '보통 (50~60g)', '묵직함 (65g 이상)'],
+    소음: ['전체', '저소음', '일반'],
+    스위치: ['전체', '부드러운 (리니어)', '손 끝에 딸깍 (택타일)', '소리 + 딸깍 (클릭키)'],
+    용도: ['전체', '게임용', '사무용'],
+    가격: ['전체', '5만원 이하', '5~10만원', '10~15만원', '15만원 이상'],
+  };
+
   return (
     <section>
       <h2 style={{
@@ -88,139 +107,24 @@ function FilterForm() {
         🧩 필터 설정을 통해 원하는 키보드 찾기
       </h2>
 
-      {/* 제조사 */}
-      <div style={boxStyle}>
-        <div style={titleStyle}>제조사</div>
-        <div style={optionsStyle}>
-          {['전체', '로지텍', '커세어', '앱코', '키크론'].map(item => (
-            <label key={item} style={labelStyle}>
-              <input type="checkbox" onChange={() => handleCheckboxChange('manufacturer', item)} /> {item}
-            </label>
-          ))}
+      {Object.entries(filterCategories).map(([categoryLabel, items]) => (
+        <div key={categoryLabel} style={boxStyle}>
+          <div style={titleStyle}>{categoryLabel}</div>
+          <div style={optionsStyle}>
+            {items.map(item => (
+              <label key={item} style={labelStyle}>
+                <input
+                  type="checkbox"
+                  checked={filters[Object.keys(filterCategories).find(key => filterCategories[key] === items)].includes(item)}
+                  onChange={() => handleCheckboxChange(Object.keys(filterCategories).find(key => filterCategories[key] === items), item)}
+                />
+                {item}
+              </label>
+            ))}
+          </div>
         </div>
-      </div>
+      ))}
 
-      {/* 연결방식 */}
-      <div style={boxStyle}>
-        <div style={titleStyle}>연결방식</div>
-        <div style={optionsStyle}>
-          {['전체', '유선', '무선(블루투스)', '무선(2.4GHz)'].map(item => (
-            <label key={item} style={labelStyle}>
-              <input type="checkbox" onChange={() => handleCheckboxChange('connection', item)} /> {item}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      {/* 무게 */}
-      <div style={boxStyle}>
-        <div style={titleStyle}>무게</div>
-        <div style={optionsStyle}>
-          {['전체', '가벼움 (700g 이하)', '보통 (700g ~ 1.2kg)', '무거움 (1.2kg 이상)'].map(item => (
-            <label key={item} style={labelStyle}>
-              <input type="checkbox" onChange={() => handleCheckboxChange('weight', item)} /> {item}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      {/* 재질 */}
-      <div style={boxStyle}>
-        <div style={titleStyle}>재질</div>
-        <div style={optionsStyle}>
-          {['전체', '플라스틱', '알루미늄', '아크릴'].map(item => (
-            <label key={item} style={labelStyle}>
-              <input type="checkbox" onChange={() => handleCheckboxChange('material', item)} /> {item}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      {/* 백라이트 */}
-      <div style={boxStyle}>
-        <div style={titleStyle}>백라이트</div>
-        <div style={optionsStyle}>
-          {['전체', '레인보우', '단색', 'RGB', '없음'].map(item => (
-            <label key={item} style={labelStyle}>
-              <input type="checkbox" onChange={() => handleCheckboxChange('backlight', item)} /> {item}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      {/* 키 배열 */}
-      <div style={boxStyle}>
-        <div style={titleStyle}>키 배열</div>
-        <div style={optionsStyle}>
-          {['전체', '풀배열', '작은배열'].map(item => (
-            <label key={item} style={labelStyle}>
-              <input type="checkbox" onChange={() => handleCheckboxChange('layout', item)} /> {item}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      {/* 키압 */}
-      <div style={boxStyle}>
-        <div style={titleStyle}>키압</div>
-        <div style={optionsStyle}>
-          {['전체', '가벼움 (35~45g)', '보통 (50~60g)', '묵직함 (65g 이상)'].map(item => (
-            <label key={item} style={labelStyle}>
-              <input type="checkbox" onChange={() => handleCheckboxChange('keyforce', item)} /> {item}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      {/* 소음 */}
-      <div style={boxStyle}>
-        <div style={titleStyle}>소음</div>
-        <div style={optionsStyle}>
-          {['전체', '저소음', '일반'].map(item => (
-            <label key={item} style={labelStyle}>
-              <input type="checkbox" onChange={() => handleCheckboxChange('noise', item)} /> {item}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      {/* 스위치 */}
-      <div style={boxStyle}>
-        <div style={titleStyle}>스위치</div>
-        <div style={optionsStyle}>
-          {['전체', '부드러운 (리니어)', '손 끝에 딸깍 (택타일)', '소리 + 딸깍 (클릭키)'].map(item => (
-            <label key={item} style={labelStyle}>
-              <input type="checkbox" onChange={() => handleCheckboxChange('switch', item)} /> {item}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      {/* 용도 */}
-      <div style={boxStyle}>
-        <div style={titleStyle}>용도</div>
-        <div style={optionsStyle}>
-          {['전체', '게임용', '사무용'].map(item => (
-            <label key={item} style={labelStyle}>
-              <input type="checkbox" onChange={() => handleCheckboxChange('usage', item)} /> {item}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      {/* 가격 */}
-      <div style={boxStyle}>
-        <div style={titleStyle}>가격</div>
-        <div style={optionsStyle}>
-          {['전체', '5만원 이하', '5~10만원', '10~15만원', '15만원 이상'].map(item => (
-            <label key={item} style={labelStyle}>
-              <input type="checkbox" onChange={() => handleCheckboxChange('price', item)} /> {item}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      {/* 검색 버튼 */}
       <div style={{ marginTop: '2rem', textAlign: 'center' }}>
         <button
           type="button"
