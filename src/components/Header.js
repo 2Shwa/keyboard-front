@@ -46,10 +46,10 @@ function Header() {
                 <div className="Login-Link">
                   {token ? (
                     <>
-                      <button onClick={() => navigate('/mypage')} style={buttonStyle}>
+                      <button onClick={() => navigate('/mypage')} className="Header-Button">
                         마이페이지
                       </button>
-                      <button onClick={handleLogout} style={buttonStyle}>
+                      <button onClick={handleLogout} className="Header-Button">
                         로그아웃
                       </button>
                     </>

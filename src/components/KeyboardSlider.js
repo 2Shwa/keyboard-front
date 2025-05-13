@@ -1,32 +1,49 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules'; // ✅ 버전 11 이상에서만 이거!
-
+import { Navigation, Pagination } from 'swiper/modules';
+import heartIcon from '../images/heart.png';
+import keyboardImage from '../images/keyboard.png';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import './css/KeyboardSlider.css';
 
 function KeyboardSlider() {
   return (
-    <section>
-      <h2>
-        키덕 PICK! 추천 키보드 💡
-      </h2>
+    <section className="pick-container">
+      <div className="pick-title">
+        <h2 className="pick-heading">키덕 PICK! 추천 키보드</h2>
+      </div>
 
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={20}
-        slidesPerView={2}
+        slidesPerView={3}
         navigation
         pagination={{ clickable: true }}
-        style={{ marginTop: '1.5rem', position: 'relative' }}
+        className="pick-slide-container"
       >
-        <SwiperSlide><div className="keyboard-card">키보드1</div></SwiperSlide>
-        <SwiperSlide><div className="keyboard-card">키보드2</div></SwiperSlide>
-        <SwiperSlide><div className="keyboard-card">키보드3</div></SwiperSlide>
-        <SwiperSlide><div className="keyboard-card">키보드4</div></SwiperSlide>
-        <SwiperSlide><div className="keyboard-card">키보드5</div></SwiperSlide>
-        <SwiperSlide><div className="keyboard-card">키보드6</div></SwiperSlide>
+        {[1, 2, 3, 4, 5, 6].map((num) => (
+          <SwiperSlide key={num}>
+            <div className="keyboard-Container">
+              <div className="keyboard-slide">
+                <img src={keyboardImage} alt="키보드 이미지" className="keyboard-image" />
+                <div className="keyboard-information">
+                  <div className="name-container">
+                    <div className="keyboard-brand">제조사</div>
+                    <div className="keyboard-name">키보드{num}</div>
+                  </div>
+                  <div className="price-container">
+                    <div className="keyboard-price">100,000원</div>
+                  </div>
+                </div>
+                <div className="keyboard-heart-placeholder">
+                  <img src={heartIcon} alt="하트 아이콘" className="Heart-icon" />
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </section>
   );
