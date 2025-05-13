@@ -35,32 +35,31 @@ html, body {
   
 /* 로고 영역 */
 .Logo {
-  width: 200px; /* 로고 폭 고정 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 90px;
+    display: flex;                  /* 내부 요소 정렬 */
+    align-items: center;            /* 수직 정렬 */
+    justify-content: center;        /* 수평 가운데 정렬 */
+    width: 120px;                   /* 너비 120px */
+    height: 90px;                   /* 높이 90px */
 }
   
 .Logo-icon {
     width: 110px;                   /* 너비 110px */
     height: 80px;                   /* 높이 80px */
-    
 }
   
 /* 섹션 컨테이너 전체 */
 .Section-Container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 20px;
-  height: 40px;
-  margin: 0 auto;
+    position: absolute;             /* Header 기준 절대 위치 */
+    display: flex;                  /* 내부 요소 정렬 */
+    flex-direction: row;            /* 가로 방향 배치 */
+    align-items: center;            /* 수직 가운데 정렬 */
+    bottom: 5px;                    /* 하단에서 5px 위 */
+    left: 120px;                    /* 왼쪽 여백 (로고 옆) */
+    right: 0px;                     /* 오른쪽 끝까지 */
+    height: 40px;                   /* 높이 40px */
 }
 
-/* 조립 튜토리얼 영역 */
+/* 조립 튜토리얼 영역 -> 이 부분 지워주세요! */
 .Tutorial-Section {
     display: flex;                  /* 내부 요소 정렬 */
     align-items: center;            /* 수직 정렬 */
@@ -98,12 +97,6 @@ html, body {
 }
   
 /* 검색 섹션 */
-.SearchBar {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
 .Search-Section {
     display: flex;                  /* 내부 요소 정렬 */
     width: 401px;                   /* 너비 401px */
@@ -131,7 +124,6 @@ html, body {
     border: none;                   /* 버튼 테두리 제거 */
     outline: none;                  /* 버튼 테두리 제거 */
     background: transparent;        /* 배경 투명 */
-
     font-family: 'Inter', sans-serif;/* 폰트 설정 */
     font-weight: 700;               /* 굵은 글씨 */
     font-size: 16px;                /* 글자 크기 */
@@ -160,11 +152,12 @@ html, body {
   
 /* 리스트 섹션 */
 .List-Section {
-  width: 200px; /* 로고랑 동일하게 고정 */
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 40px;
+    display: flex;                  /* 내부 요소 정렬 */
+    width: 400px;                   /* 너비 400px */
+    height: 40px;                   /* 전체 높이 */
+    justify-content: center;        /* 수평 가운데 정렬 */
+    align-items: center;            /* 수직 가운데 정렬 */
+    padding: 0 35px;                /* 안쪽 여백 35px */
 }
 
 .List-Container {
@@ -189,6 +182,15 @@ html, body {
   align-items: center;
   gap: 8px;
 }
+
+/* .Login-Link {
+    display: flex;               
+    justify-content: center;     
+    align-items: center;           
+    width: 100%;                  
+    height: 100%;                  
+    border-left: 1px solid #b3b3b3;
+} */
   
 .Login-text {
     font-weight: 700;               /* 굵은 글씨 */

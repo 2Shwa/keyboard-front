@@ -10,6 +10,19 @@ function Login() {
 
     // 백엔드 연동용
     /* const handleLogin = async () => {
+        if (!username && !password) {
+            setErrorMessage('❌ 아이디와 비밀번호를 입력해주세요.');
+            return;
+        }
+        if (!username) {
+            setErrorMessage('❌ 아이디를 입력해주세요.');
+            return;
+        }
+        if (!password) {
+            setErrorMessage('❌ 비밀번호를 입력해주세요.');
+            return;
+        }
+
         try {
             const response = await fetch('http://172.20.132.186:8081/users/login', {
                 method: 'POST',
@@ -19,21 +32,18 @@ function Login() {
                 body: JSON.stringify({ username, password }),
                 credentials: 'include'
             });
-    
+
             if (!response.ok) {
-                throw new Error('로그인 실패');
+                throw new Error('아이디 또는 비밀번호가 일치하지 않습니다.');
             }
-    
+
             const data = await response.json();
-            const token = data.token; // 백엔드가 토큰을 `token`이라는 키로 넘겨준다고 가정
-    
-            // 토큰 저장
+            const token = data.token;
+
             localStorage.setItem('token', token);
-    
-            alert('로그인 성공!');
-            navigate('/'); // 로그인 성공 후 메인으로 이동
+            navigate('/');
         } catch (error) {
-            alert('로그인 실패: ' + error.message);
+            setErrorMessage(`❌ ${error.message}`);
         }
     }; */
 

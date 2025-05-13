@@ -26,10 +26,18 @@ function Header() {
           <img src={logo} alt="키덕 로고" className="Logo-icon" />
         </Link>
 
+        {/* 섹션 컨테이너 */}
         <div className="Section-Container">
-          <div className="SearchBar">
-            <SearchBar />
+          <div className="Tutorial-Section">
+            <div className="Tutorial-Link">
+              <Link to="/" className="Tutorial-text">
+                조립 튜토리얼
+                <img src={bookIcon} alt="책 아이콘" className="Book-icon" />
+              </Link>
+            </div>
           </div>
+          {/* 검색 영역 */}
+          <SearchBar />
 
           {/* 리스트 영역 */}
           <div className="List-Section">
