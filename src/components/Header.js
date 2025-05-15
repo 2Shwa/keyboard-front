@@ -13,7 +13,9 @@ function Header() {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    window.location.reload(); // 로그아웃 후 UI 갱신
+    alert('로그아웃 되었습니다.');
+    navigate('/');
+    window.location.reload();
   };
 
   return (
@@ -27,12 +29,6 @@ function Header() {
         {/* 섹션 컨테이너 */}
         <div className="Section-Container">
           <div className="Tutorial-Section">
-            <div className="Tutorial-Link">
-              <Link to="/" className="Tutorial-text">
-                조립 튜토리얼
-                <img src={bookIcon} alt="책 아이콘" className="Book-icon" />
-              </Link>
-            </div>
           </div>
           {/* 검색 영역 */}
           <SearchBar />
@@ -46,17 +42,16 @@ function Header() {
                 <div className="Login-Link">
                   {token ? (
                     <>
-                      <button onClick={() => navigate('/mypage')} className="Header-Button">
-                        마이페이지
-                      </button>
-                      <button onClick={handleLogout} className="Header-Button">
-                        로그아웃
-                      </button>
+                      <span onClick={() => navigate('/mypage')} className="Login-text">마이페이지</span>
+                      <span className="Divider">|</span>
+                      <span onClick={handleLogout} className="Login-text">로그아웃</span>
                     </>
                   ) : (
-                    <Link to="/login" className="Login-text">
-                      회원가입 | 로그인
-                    </Link>
+                    <>
+                      <Link to="/signup" className="Login-text">회원가입</Link>
+                      <span className="Divider">|</span>
+                      <Link to="/login" className="Login-text">로그인</Link>
+                    </>
                   )}
                 </div>
               </div>

@@ -1,0 +1,89 @@
+/* 공통 스타일 */
+.filter-heading {
+    background-color: #FFFDBF;
+    padding: 0.5rem 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.filter-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.filter-title {
+    width: 120px;
+    font-weight: bold;
+}
+
+.filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-left: 1rem;
+}
+
+.filter-label {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.filter-button {
+    padding: 0.8rem 2rem;
+    background-color: #B8F5DC;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.results-section {
+    margin-top: 2rem;
+}
+
+.results-heading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.result-card {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.result-image {
+    width: 30%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1rem;
+}
+
+.result-name {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.result-desc {
+    font-size: 0.95rem;
+    color: #555;
+}

@@ -1,0 +1,114 @@
+/* 로그인 전체 배경 */
+.login-page {
+    position: relative;
+    min-height: 100vh;
+    background-color: #FFFDBF;
+}
+
+/* 홈 버튼 */
+.home-button {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    background-color: #B8F5DC;
+    color: #333;
+    border: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.4rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 로그인 박스 */
+.login-box-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 700px;
+    background-color: #fff;
+    padding: 4rem;
+    border-radius: 16px;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+/* 입력창 */
+.login-input {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* 로그인 버튼 */
+.login-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #B8F5DC;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* 회원가입 문구와 버튼 */
+.login-bottom-text {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: #00A884;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  margin-left: 0.3rem;
+}
+
+.login-bottom-box {
+  margin-top: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.login-bottom-box .link-button {
+  background: none;
+  border: none;
+  color: #007BFF;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 0.4rem;
+}
+
+.login-error-message {
+  color: #e74c3c;
+  margin-top: 0.8rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-align: left;
+}

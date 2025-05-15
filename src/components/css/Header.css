@@ -45,7 +45,6 @@ html, body {
 .Logo-icon {
     width: 110px;                   /* 너비 110px */
     height: 80px;                   /* 높이 80px */
-    
 }
   
 /* 섹션 컨테이너 전체 */
@@ -59,8 +58,8 @@ html, body {
     right: 0px;                     /* 오른쪽 끝까지 */
     height: 40px;                   /* 높이 40px */
 }
-  
-/* 조립 튜토리얼 영역 */
+
+/* 조립 튜토리얼 영역 -> 이 부분 지워주세요! */
 .Tutorial-Section {
     display: flex;                  /* 내부 요소 정렬 */
     align-items: center;            /* 수직 정렬 */
@@ -125,7 +124,6 @@ html, body {
     border: none;                   /* 버튼 테두리 제거 */
     outline: none;                  /* 버튼 테두리 제거 */
     background: transparent;        /* 배경 투명 */
-
     font-family: 'Inter', sans-serif;/* 폰트 설정 */
     font-weight: 700;               /* 굵은 글씨 */
     font-size: 16px;                /* 글자 크기 */
@@ -179,14 +177,20 @@ html, body {
     padding: 0 15px;                /* 안쪽 여백 15px */
 }
   
-.Login-Link {
-    display: flex;                  /* 내부 요소 정렬 */
-    justify-content: center;        /* 수평 가운데 정렬 */
-    align-items: center;            /* 수직 가운데 정렬 */
-    width: 100%;                   /* 전체 너비 */
-    height: 100%;                   /* 전체 높이 */
-    border-left: 1px solid #b3b3b3;
+.Login-Link-Wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
+
+/* .Login-Link {
+    display: flex;               
+    justify-content: center;     
+    align-items: center;           
+    width: 100%;                  
+    height: 100%;                  
+    border-left: 1px solid #b3b3b3;
+} */
   
 .Login-text {
     font-weight: 700;               /* 굵은 글씨 */
@@ -194,16 +198,11 @@ html, body {
     color: #b3b3b3;               /* 회색 텍스트 */
     text-align: center;             /* 가운데 정렬 */
     text-decoration: none;          /* 밑줄 제거 */
+    cursor: pointer;
+    white-space: nowrap;            /* 줄바꿈 방지 */
 }
 
-.Header-Button {
-    padding: 0.5rem 1rem;
-    background-color: #B8F5DC;
-    color: #333;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    margin-left: 0.5rem;
-  }
+.Divider {
+  color: #aaa;
+  user-select: none;
+}
