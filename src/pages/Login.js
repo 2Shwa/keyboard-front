@@ -9,7 +9,7 @@ function Login() {
     const [errorMessage, setErrorMessage] = useState('');
 
     // 백엔드 연동용
-    /* const handleLogin = async () => {
+    const handleLogin = async () => {
         if (!username && !password) {
             setErrorMessage('❌ 아이디와 비밀번호를 입력해주세요.');
             return;
@@ -45,10 +45,10 @@ function Login() {
         } catch (error) {
             setErrorMessage(`❌ ${error.message}`);
         }
-    }; */
+    };
 
     // 프론트 단독 테스트용
-    const handleLogin = () => {
+    /* const handleLogin = () => {
         if (!username && !password) {
             setErrorMessage('❌ 아이디와 비밀번호를 입력해주세요.');
             return;
@@ -68,7 +68,7 @@ function Login() {
         } else {
             setErrorMessage('❌ 아이디 또는 비밀번호가 일치하지 않습니다.');
         }
-    };
+    }; */
 
     return (
         <div className="login-page">

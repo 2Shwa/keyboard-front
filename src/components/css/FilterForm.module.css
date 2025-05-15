@@ -1,0 +1,123 @@
+.title {
+  background-color: #FFFDBF;
+  padding: 0.5rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.category {
+  width: 120px;
+  font-weight: bold;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-left: 1rem;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.searchBtn {
+  padding: 0.8rem 2rem;
+  background-color: #B8F5DC;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.resultContainer {
+  margin-top: 2rem;
+}
+
+.resultTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.resultCard {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.resultImage {
+  width: 30%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.resultText {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.filterOption {
+  display: inline-block;
+  margin: 0.3rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.95rem;
+  color: #555;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.filterOption:hover {
+  color: #1fc6a6;
+}
+
+.filterOptionChecked {
+  color: #1fc6a6; 
+  font-weight: 600;
+}
+
+.hiddenCheckbox {
+  display: none;
+}
+
+.summaryBox {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f4fefb;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+.summaryItem {
+  margin-bottom: 0.3rem;
+}

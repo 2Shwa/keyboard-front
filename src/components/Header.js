@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './css/Header.css';
 import logo from '../images/logo.png';
 import heartIcon from '../images/heart.png';
-import bookIcon from '../images/book.png';
 import SearchBar from './SearchBar';
 import { useNavigate } from 'react-router-dom';
+import authFetch from '../utils/authFetch';
 
 function Header() {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
+  const [username, setUsername] = useState('');
+
+  // 사용자 정보 요청
+  useEffect(() => {
+    const fetchUser = async () => {
+      if (!token) return;
+      try {
+        const res = await authFetch('http://172.20.132.186:8081/keyboards/1');
+        if (!res.ok) throw new Error('유저 정보를 불러오지 못했습니다');
+        const data = await res.json();
+        setUsername(data.username); // 백엔드에서 username을 이렇게 보내준다고 가정
+      } catch (err) {
+        console.error(err.message);
+      }
+    };
+
+    fetchUser();
+  }, [token]);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -22,19 +40,13 @@ function Header() {
     <header className="Header-Container">
       <div className="Header">
         {/* 로고 영역 */}
-        <Link to='/' className="Logo">
+        <div className="Logo">
           <img src={logo} alt="키덕 로고" className="Logo-icon" />
-        </Link>
+        </div>
 
         {/* 섹션 컨테이너 */}
         <div className="Section-Container">
           <div className="Tutorial-Section">
-            <div className="Tutorial-Link">
-              <Link to="/" className="Tutorial-text">
-                조립 튜토리얼
-                <img src={bookIcon} alt="책 아이콘" className="Book-icon" />
-              </Link>
-            </div>
           </div>
           {/* 검색 영역 */}
           <SearchBar />

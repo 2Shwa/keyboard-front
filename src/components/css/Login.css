@@ -84,27 +84,6 @@
   margin-left: 0.3rem;
 }
 
-.login-bottom-box {
-  margin-top: 2rem;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  padding: 1rem;
-  text-align: center;
-  font-size: 0.95rem;
-  color: #555;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
-}
-
-.login-bottom-box .link-button {
-  background: none;
-  border: none;
-  color: #007BFF;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: underline;
-  margin-left: 0.4rem;
-}
-
 .login-error-message {
   color: #e74c3c;
   margin-top: 0.8rem;

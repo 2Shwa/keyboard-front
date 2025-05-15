@@ -6,11 +6,11 @@ function Signup() {
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState('');
     const [form, setForm] = useState({
+        userID: '',
         username: '',
         password: '',
-        confirmPassword: '',
-        name: '',
-        phone: ''
+        email: '',
+        // confirmPassword: '',
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -19,13 +19,50 @@ function Signup() {
         setForm(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = () => {
-        if (form.password !== form.confirmPassword) {
-            setErrorMessage('❌ 비밀번호가 일치하지 않습니다.');
+    const checkDuplicateUserID = async () => {
+        try {
+            const response = await fetch(`http://172.20.132.186:8081/users/check-id?userID=${form.userID}`);
+            const data = await response.json();
+            if (data.exists) {
+                setErrorMessage('❌ 이미 사용 중인 아이디입니다.');
+            } else {
+                setErrorMessage('✅ 사용 가능한 아이디입니다.');
+            }
+        } catch (err) {
+            console.error(err.message);
+        }
+    };
+
+    const handleSubmit = async () => {
+        if (!form.userID || !form.password) {
+            setErrorMessage('❌ 아이디와 비밀번호를 입력해주세요.');
             return;
         }
-        setErrorMessage('');
-        setIsSubmitted(true);
+
+        try {
+            const response = await fetch('http://172.20.132.186:8081/users/join', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userID: form.userID,
+                    username: form.username,
+                    password: form.password,
+                    email: form.email,
+                }),
+            });
+
+            if (!response.ok) {
+                const err = await response.json();
+                throw new Error(err.message || '회원가입 실패');
+            }
+
+            alert('✅ 회원가입이 완료되었습니다!');
+            navigate('/login');
+        } catch (error) {
+            setErrorMessage(`❌ ${error.message}`);
+        }
     };
 
     return (
@@ -38,12 +75,29 @@ function Signup() {
                         <>
                             <h2 className="signup-title">회원가입</h2>
 
-                            {[ 
-                                { label: '아이디', name: 'username', type: 'text' },
+                            {/* 아이디 필드 + 중복 확인 */}
+                            <div className="signup-field">
+                                <label className="signup-label">아이디</label>
+                                <input
+                                    type="text"
+                                    name="userID"
+                                    onChange={handleChange}
+                                    className="signup-input"
+                                />
+                                <button
+                                    onClick={checkDuplicateUserID}
+                                    className="check-button"
+                                >
+                                    중복 확인
+                                </button>
+                            </div>
+
+                            {/* 나머지 필드들 */}
+                            {[
+                                { label: '이름', name: 'username', type: 'text' },
                                 { label: '비밀번호', name: 'password', type: 'password' },
-                                { label: '비밀번호 확인', name: 'confirmPassword', type: 'password' },
-                                { label: '이름', name: 'name', type: 'text' },
-                                { label: '휴대전화', name: 'phone', type: 'text' }
+                                // { label: '비밀번호 확인', name: 'confirmPassword', type: 'password' },
+                                { label: '이메일', name: 'email', type: 'email' },
                             ].map(({ label, name, type }) => (
                                 <div key={name} className="signup-field">
                                     <label className="signup-label">{label}</label>
