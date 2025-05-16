@@ -3,7 +3,6 @@ import Header from './components/Header';
 import KeyboardSlider from './components/KeyboardSlider';
 // import KeyboardInfo from './KeyboardInfo';
 import FilterForm from './components/FilterForm';
-import FilterTest from './components/FilterTest';
 
 function Home() {
   return (
@@ -13,7 +12,6 @@ function Home() {
         <KeyboardSlider />
         { /* <KeyboardInfo /> */}
         <FilterForm />
-        <FilterTest />
       </div>
     </div>
   );

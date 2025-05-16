@@ -1,4 +1,4 @@
-.signup-page {
+.auth-page {
   position: relative;
   min-height: 100vh;
   background-color: #FFFDBF;
@@ -19,15 +19,14 @@
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.signup-wrapper {
+.auth-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #FFFDBF;
 }
 
-.signup-box {
+.auth-box {
   width: 100%;
   max-width: 700px;
   background-color: #fff;
@@ -37,25 +36,26 @@
   text-align: left;
 }
 
-.signup-title {
+.auth-title {
   margin-bottom: 2rem;
   font-size: 1.8rem;
+  font-weight: bold;
   text-align: center;
 }
 
-.signup-field {
+.auth-field {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
 }
 
-.signup-label {
+.auth-label {
   width: 130px;
   font-weight: bold;
   font-size: 1rem;
 }
 
-.signup-input {
+.auth-input {
   flex: 1;
   padding: 0.75rem;
   border-radius: 10px;
@@ -63,7 +63,7 @@
   font-size: 1rem;
 }
 
-.signup-button {
+.auth-button {
   width: 100%;
   margin-top: 2rem;
   padding: 1rem;
@@ -76,36 +76,32 @@
   cursor: pointer;
 }
 
-.error-message {
+.auth-error-message {
   color: #e74c3c;
-  margin-bottom: 1rem;
+  margin-top: 0.8rem;
   font-weight: 500;
   font-size: 0.95rem;
+  text-align: left;
 }
 
 .login-bottom-text {
-  margin-top: 1rem;
-  font-size: 0.9rem;
+  margin-top: 1.5rem;
+  font-size: 1rem;
   text-align: center;
 }
 
 .link-button {
   background: none;
   border: none;
-  color: #007BFF;
-  text-decoration: underline;
+  color: #1fc6a6;
   cursor: pointer;
-  font-size: 0.9rem;
-  padding: 0;
-  margin-left: 0.3rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.check-button {
-  margin-left: 10px;
-  padding: 0.5rem 1rem;
-  background-color: #eee;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
+.link-button:hover {
+  color: #149f85;
 }

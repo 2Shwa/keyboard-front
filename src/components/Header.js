@@ -20,7 +20,7 @@ function Header() {
         const res = await authFetch('http://172.20.132.186:8081/keyboards/1');
         if (!res.ok) throw new Error('유저 정보를 불러오지 못했습니다');
         const data = await res.json();
-        setUsername(data.username); // 백엔드에서 username을 이렇게 보내준다고 가정
+        setUsername(data.username);
       } catch (err) {
         console.error(err.message);
       }
@@ -60,7 +60,7 @@ function Header() {
                 <div className="Login-Link-Wrapper">
                   {token ? (
                     <>
-                      <span onClick={() => navigate('/mypage')} className="Login-text">마이페이지</span>
+                      <span className="Login-text">{username} 님</span>
                       <span className="Divider">|</span>
                       <span onClick={handleLogout} className="Login-text">로그아웃</span>
                     </>

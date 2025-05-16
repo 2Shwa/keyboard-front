@@ -1,35 +1,22 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../components/css/Login.css';
+import '../components/css/Auth.css';
 
 function Login() {
     const navigate = useNavigate();
-    const [username, setUsername] = useState('');
+    const [userId, setUserId] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
     // 백엔드 연동용
     const handleLogin = async () => {
-        if (!username && !password) {
-            setErrorMessage('❌ 아이디와 비밀번호를 입력해주세요.');
-            return;
-        }
-        if (!username) {
-            setErrorMessage('❌ 아이디를 입력해주세요.');
-            return;
-        }
-        if (!password) {
-            setErrorMessage('❌ 비밀번호를 입력해주세요.');
-            return;
-        }
-
         try {
             const response = await fetch('http://172.20.132.186:8081/users/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({ userId, password }),
                 credentials: 'include'
             });
 
@@ -47,63 +34,44 @@ function Login() {
         }
     };
 
-    // 프론트 단독 테스트용
-    /* const handleLogin = () => {
-        if (!username && !password) {
-            setErrorMessage('❌ 아이디와 비밀번호를 입력해주세요.');
-            return;
-        }
-        if (!username) {
-            setErrorMessage('❌ 아이디를 입력해주세요.');
-            return;
-        }
-        if (!password) {
-            setErrorMessage('❌ 비밀번호를 입력해주세요.');
-            return;
-        }
-
-        if (username === 'hello' && password === '1234') {
-            localStorage.setItem('token', 'dummy-token');
-            navigate('/');
-        } else {
-            setErrorMessage('❌ 아이디 또는 비밀번호가 일치하지 않습니다.');
-        }
-    }; */
-
     return (
-        <div className="login-page">
+        <div className="auth-page">
             <button onClick={() => navigate('/')} className="home-button">🏠</button>
 
-            <div className="login-box-wrapper">
-                <div className="login-box">
-                    <h2 style={{ marginBottom: '2rem' }}>로그인</h2>
+            <div className="auth-wrapper">
+                <div className="auth-box">
+                    <h2 className="auth-title">로그인</h2>
 
-                    <input
-                        type="text"
-                        placeholder="아이디"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        className="login-input"
-                    />
+                    <div className="auth-field">
+                        <input
+                            type="text"
+                            placeholder="아이디"
+                            value={userId}
+                            onChange={(e) => setUserId(e.target.value)}
+                            className="auth-input"
+                        />
+                    </div>
 
-                    <input
-                        type="password"
-                        placeholder="비밀번호"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        className="login-input"
-                    />
+                    <div className="auth-field">
+                        <input
+                            type="password"
+                            placeholder="비밀번호"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="auth-input"
+                        />
+                    </div>
 
-                    <button onClick={handleLogin} className="login-button">로그인</button>
+                    <button onClick={handleLogin} className="auth-button">로그인</button>
 
                     {errorMessage && (
-                        <p className="login-error-message">{errorMessage}</p>
+                        <p className="auth-error-message">{errorMessage}</p>
                     )}
 
                     <p className="login-bottom-text">
-                        계정이 없으신가요?{' '}
+                        계정이 없으신가요?
                         <button onClick={() => navigate('/signup')} className="link-button">
-                            회원가입하기
+                            회원가입
                         </button>
                     </p>
                 </div>
