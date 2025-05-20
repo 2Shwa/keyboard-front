@@ -58,28 +58,32 @@ function FilterForm() {
   };
 
   return (
-    <section>
-      <h2 className="filter-heading">
-        🧙‍♂️ 필터 설정을 통해 원하는 키보드 찾기
-      </h2>
+    <section className="filter-frame">
+      <div className="filter-title">
+        <h2 className="filter-text">
+          필터로 원하는 키보드 찾기
+        </h2>
+      </div>
 
-      {Object.entries(filterCategories).map(([categoryLabel, items]) => (
-        <div key={categoryLabel} className="filter-box">
-          <div className="filter-title">{categoryLabel}</div>
-          <div className="filter-options">
-            {items.map(item => (
-              <label key={item} className="filter-label">
-                <input
-                  type="checkbox"
-                  checked={filters[categoryLabel].includes(item)}
-                  onChange={() => handleCheckboxChange(categoryLabel, item)}
-                />
-                {item}
-              </label>
-            ))}
+      <div className="filter-container">
+        {Object.entries(filterCategories).map(([categoryLabel, items]) => (
+          <div key={categoryLabel} className="filter-box">
+            <div className="filter-title">{categoryLabel}</div>
+            <div className="filter-options">
+              {items.map(item => (
+                <label key={item} className="filter-label">
+                  <input
+                    type="checkbox"
+                    checked={filters[categoryLabel].includes(item)}
+                    onChange={() => handleCheckboxChange(categoryLabel, item)}
+                  />
+                  {item}
+                </label>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
 
       <div className="submit-container">
         <button type="button" onClick={handleSubmit} className="submit-button">

@@ -1,89 +1,99 @@
-/* 공통 스타일 */
-.filter-heading {
-    background-color: #FFFDBF;
-    padding: 0.5rem 1rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+/* Filter 전체 프레임 스타일 */
+.filter-frame {
+    display: flex;              /* 요소들을 flexbox로 배치 */
+    flex-direction: column;     /* 세로 정렬 */
+    align-items: center;        /* 중앙 정렬 */
+    padding: 10px 0px 1px;      /* 위아래 패딩 */
+    gap: 10px;                  /* 자식 요소 간격 */
+    margin: 30px auto 0;        /* 위쪽 여백 */
+    width: 1200px;              /* 너비 지정 */
+    height: 556px;              /* 높이 지정 */
+    background: #ffffff;      /* 배경 흰색 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);/* 그림자 효과 */
+    border-radius: 10px;        /* 둥근 테두리 */
 }
 
-.filter-box {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-}
-
+/* 타이틀 박스 스타일 */
 .filter-title {
-    width: 120px;
-    font-weight: bold;
-}
-
-.filter-options {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-left: 1rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 40px;
+    background: #fffed0;        /* 연한 노란 배경 */
+    border: 1px solid #eeeeee;  /* 옅은 회색 테두리 */
+    border-radius: 10px;          /* 둥근 테두리 */
 }
 
+/* 타이틀 텍스트 스타일 */
+.filter-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.25px;    /* 자간 좁힘 */
+    color: #5ae8d1;           /* 밝은 민트색 */
+}
+
+/* 필터 전체 컨테이너 */
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;    /* 왼쪽 정렬 */
+    width: 1200px;
+    height: 495px;
+    background: #ffffff;
+}
+
+/* 필터 라인 스타일 공통 */
+.filter-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    height: 45px;
+    margin-bottom: 10px;        /* 리스트 간격 */
+}
+
+/* 필터 항목 폼 (카테고리 이름, 버튼) */
+.filter-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 20px;
+    height: 45px;
+    background: none;            /* 기본 배경 없음 */
+}
+
+/* 카테고리 제목 필터 (예: 제조사, 용도 등) */
 .filter-label {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
+    background: #fffed0;
+    padding: 13px 0px;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 16px;
+    color: #000000;
+    text-align: center;
 }
 
+/* 버튼 텍스트 스타일 (선택 안됨 상태) */
 .filter-button {
-    padding: 0.8rem 2rem;
-    background-color: #B8F5DC;
-    color: #333;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    cursor: pointer;
-    margin-top: 1rem;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 16px;
+    color: #b3b3b3;     /* 회색 - 비선택 상태 */
+    text-align: center;
 }
 
-.results-section {
-    margin-top: 2rem;
+/* 버튼 텍스트 스타일 (선택됨 상태) */
+.filter-button.active {
+    color: #000000;      /* 검정색 - 선택 상태 */
 }
 
-.results-heading {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-}
-
-.result-card {
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 1.2rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    cursor: pointer;
-}
-
-.result-image {
-    width: 30%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-right: 1rem;
-}
-
-.result-name {
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
-}
-
-.result-desc {
-    font-size: 0.95rem;
-    color: #555;
+/* 버튼 간격용 */
+.filter-form+.filter-form {
+    margin-left: 10px;
 }
