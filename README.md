@@ -27,7 +27,7 @@
 - 튜토리얼을 열고 닫으며 서비스 이용 방법을 확인할 수 있습니다.
 - 필터 검색, 타건 테스트, AI 추천, MBTI 추천 기능으로 이동할 수 있습니다.
 
-![메인 페이지와 튜토리얼](./main_tutorial.png)
+![메인 페이지와 튜토리얼](./images/main_tutorial.png)
 
 ---
 
@@ -36,9 +36,9 @@
 - 상단 검색창에 키보드 이름을 입력하여 검색할 수 있습니다.
 - 검색 결과를 목록으로 확인할 수 있습니다.
 
-![키보드 검색창](./search.png)
+![키보드 검색창](./images/search.png)
 
-![키보드 검색 결과](./search_result.png)
+![키보드 검색 결과](./images/search_result.png)
 
 ---
 
@@ -51,15 +51,15 @@
 
 **필터 검색 및 결과**
 
-![필터 검색 결과](./filter_result.png)
+![필터 검색 결과](./images/filter_result.png)
 
 **낮은 가격순 정렬**
 
-![낮은 가격순 정렬](./price_cheap.png)
+![낮은 가격순 정렬](./images/price_cheap.png)
 
 **키보드 목록 및 페이지 이동**
 
-![키보드 목록과 페이지 이동](./keyboard_list.png)
+![키보드 목록과 페이지 이동](./images/keyboard_list.png)
 
 ---
 
@@ -71,7 +71,7 @@
 - 댓글을 작성하고 확인할 수 있습니다.
 - 하트 버튼을 눌러 관심 있는 키보드를 찜할 수 있습니다.
 
-![키보드 상세 페이지](./keyboard_detail.png)
+![키보드 상세 페이지](./images/keyboard_detail.png)
 
 ---
 
@@ -82,11 +82,11 @@
 
 **스위치 선택**
 
-![스위치 선택 버튼](./soundbutton.png)
+![스위치 선택 버튼](./images/soundbutton.png)
 
 **타건 테스트**
 
-![스위치 타건 테스트](./sound_result.png)
+![스위치 타건 테스트](./images/sound_result.png)
 
 ---
 
@@ -98,15 +98,15 @@
 
 **AI 추천 검색 버튼**
 
-![AI 추천 검색 버튼](./gpt_button.png)
+![AI 추천 검색 버튼](./images/gpt_button.png)
 
 **AI 추천 검색 화면**
 
-![AI 추천 검색 화면](./gpt_search.png)
+![AI 추천 검색 화면](./images/gpt_search.png)
 
 **AI 추천 결과**
 
-![AI 추천 결과](./gpt_result.png)
+![AI 추천 결과](./images/gpt_result.png)
 
 ---
 
@@ -117,11 +117,11 @@
 
 **MBTI 추천 테스트 버튼**
 
-![MBTI 추천 테스트 버튼](./mbti_button.png)
+![MBTI 추천 테스트 버튼](./images/mbti_button.png)
 
 **MBTI 추천 테스트**
 
-![MBTI 추천 테스트](./mbti_game.png)
+![MBTI 추천 테스트](./images/mbti_game.png)
 
 ---
 
@@ -134,19 +134,19 @@
 
 **회원가입**
 
-![회원가입](./join.png)
+![회원가입](./images/join.png)
 
 **로그인**
 
-![로그인](./login.png)
+![로그인](./images/login.png)
 
 **로그인 성공 화면**
 
-![로그인 성공 화면](./success-login.png)
+![로그인 성공 화면](./images/success-login.png)
 
 **마이페이지**
 
-![마이페이지](./mypage.png)
+![마이페이지](./images/mypage.png)
 
 ---
 
