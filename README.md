@@ -193,5 +193,3 @@
 ## 🔗 관련 저장소
 
 - [백엔드 저장소](https://github.com/jeongmy/keyboard-project)
-
-> 프로젝트 기능 설명 및 화면 이미지는 팀 백엔드 저장소의 README를 참고했습니다.
